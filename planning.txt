@@ -2,14 +2,28 @@ JS classes:
 
 Quiz class:
     Has a name/title
-    Has a description/subtitle
-    Has a category?
+    Has a description/subtitle -- not required from the user
+    Has a category? -- not required from the user
+    
+    -- NOTE: The user should enter the above three on an initial
+    page, a page that comes before he/she makes the quiz.
+
     Made up of questions
-    Has a confirm/submit button
+    Has a confirm/submit button (not sure if this belongs in the class)
+    Add question method
+    Remove question method
+
+    -- NOTE: Every quiz must have at least one question.
 
 Question class:
     Has a question being asked
     Made up of POSSIBLE answers
+    Add answer method
+    Remove answer method
+    A static method that counts the amount of questions in the quiz?
+    
+    -- NOTE: Every question must have at least two possible answers
+    and at least one correct answer.
 
 Answer class:
     Has a possible answer to a question
