@@ -1,0 +1,17 @@
+JS classes:
+
+Quiz class:
+    Has a name/title
+    Has a description/subtitle
+    Has a category?
+    Made up of questions
+    Has a confirm/submit button
+
+Question class:
+    Has a question being asked
+    Made up of POSSIBLE answers
+
+Answer class:
+    Has a possible answer to a question
+    Has an option for the user to select it
+    Has a boolean property for whether it is "correct" or not
