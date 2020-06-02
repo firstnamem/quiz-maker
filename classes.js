@@ -86,6 +86,9 @@ class Question {
         if (this.numAnswers >= 2 && oneCorrect) {
             return true;
         }
+        else {
+            return false;
+        }
 
     }
 
