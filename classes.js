@@ -18,10 +18,15 @@ class Question {
         
     }
 
+    removeAnswer(answer) {
+
+    }
+
     // Later make the addAnswer(), removeAnswer() methods
 }
 
 class Answer {
+    var correct = false;
     constructor(answer) {
         this.answer = answer;
     }
