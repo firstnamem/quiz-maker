@@ -29,3 +29,27 @@ Answer class:
     Has a possible answer to a question
     Has an option for the user to select it
     Has a boolean property for whether it is "correct" or not
+
+HTML elements/screens/basic hierarchy:
+    
+    Initiation/Welcome Screen:
+        Clean interface, basic start screen
+        User selects title (required), description, category
+        Submission button that creates Quiz object with parameters
+    
+    Quiz-Making Screen (main):
+        Big section to hold all elements
+        Smaller division for questions
+            Starts with one question that cannot be deleted
+            (Level 1) Simple button for adding multiple-choice questions
+                Can remove questions with other widget
+            Question options - part of each question division
+                Starts with two possible answers
+                Additional button to create more answers
+                Each answer: button to select it as correct answer (only one)
+        Final "Creation" Button to finalize options
+            Should have some basic error-checking on each question
+                For example: Empty answer field, empty question, etc.
+    
+    Quiz-Taking Screen:
+        // Elaborate on this when we get here or during coding the Quiz-Making screen
