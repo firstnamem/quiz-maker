@@ -8,7 +8,7 @@ Quiz class:
     -- NOTE: The user should enter the above three on an initial
     page, a page that comes before he/she makes the quiz.
 
-    Made up of questions
+    Made up of questions (Has an array of question objects)
     Has a confirm/submit button (not sure if this belongs in the class)
     Add question method
     Remove question method
@@ -17,7 +17,7 @@ Quiz class:
 
 Question class:
     Has a question being asked
-    Made up of POSSIBLE answers
+    Made up of POSSIBLE answers (Has an array of answer objects)
     Add answer method
     Remove answer method
     A static method that counts the amount of questions in the quiz?
