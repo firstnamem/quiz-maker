@@ -144,3 +144,5 @@ class Answer {
         this.correct = !this.correct;
     }
 }
+
+export {Quiz, Question, Answer};
