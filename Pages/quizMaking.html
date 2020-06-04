@@ -9,11 +9,33 @@
     </head>
     <body>
         <h1>Time to make your Quiz!</h1>
-        <div class = "questions">
-            <form action = "../classes.js">
-                <!-- make a format similar to initial Page for each question
-                ...set of 4 text entries then radio buttons for the correct answer-->
+        <div class = "questions"> <!-- This section should somehow be made into a js method to add questions -->
+            <form action = "../classes.mjs"> <!-- The below code is one sample question -->
+                <label for="q">Question:</label> <!-- This needs to be extended to 35-ish characters -->
+                <input type="text" name="q"><br>
+
+                <label for="question1">Q1:</label>
+                <input type="text" name="question1"><br>
+                <label for="question2">Q2:</label>
+                <input type="text" name="question2"><br>
+                <label for="question3">Q3:</label>
+                <input type="text" name="question3"><br>
+                <label for="question4">Q4:</label>
+                <input type="text" name="question4"><br>
+
+                <label for="a">Select The Correct Answer:</label>
+                <form action = "..classes.mjs">
+                    <input type="radio" name="q1">
+                    <label for="q1">Question 1</label>
+                    <input type="radio" name="q2">
+                    <label for="q2">Question 2</label>
+                    <input type="radio" name="q3">
+                    <label for="q3">Question 3</label>
+                    <input type="radio" name="q4">
+                    <label for="q4">Question 4</label>
+                </form>
             </form>
         </div>
+        <button>Add question (make this into an icon maybe)</button>
     </body>
 </html>

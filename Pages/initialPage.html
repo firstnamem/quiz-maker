@@ -11,14 +11,14 @@
         <body>
             <h1>Welcome To Quiz Maker!</h1>
             <h2>Enter information below, you must put at least a name for your quiz.</h2>
-            <form action = "../quizConstruct.js">
+            <form action = "../quizConstruct.mjs">
                 <label for="name">Name:</label>
                 <input type="text" name="name"><br>
                 <label for="description">Brief Description:</label>
-                <input type="text" name="description"><br>
+                <input type="text" name="description" id="descInput"><br>
                 <label for="category">Category:</label>
                 <select name="category"> <!--I came up with the categories really quick-->
-                    <option><em>[Select a Category]</em></option> <!--Option to select nothing-->
+                    <option><i>[Select a Category]</i></option> <!--Option to select nothing-->
                     <option>Art & Literature</option>
                     <option>Geography</option>
                     <option>History</option>
@@ -33,5 +33,8 @@
                 <input type="submit" value="Submit">
             </form>
         </body>
+        <script>
+            document.getElementById("descInput").setAttribute('size', '30');
+        </script>
     </div>
 </html>
