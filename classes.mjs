@@ -146,6 +146,6 @@ class Answer {
 }
 
 /*let newQuiz = new Quiz("test1", "test2", "test3");
-console.log(newQuiz.cat)
+console.log(newQuiz.cat);*/
 
-export default {Quiz, Question, Answer};*/
+export {Quiz, Question, Answer};
