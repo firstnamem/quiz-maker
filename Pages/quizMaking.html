@@ -38,10 +38,12 @@
         </div>
         <button onclick="addQuestion()">Add question (make this into an icon maybe)</button>
         <script>
+            var answerCount = 4;
             function addQuestion() {
                 const form = document.getElementsByTagName("form")[0];
-                form.innerHTML += "<label for=\"q\">Question:</label> <!-- This needs to be extended to 35-ish characters -->\n" +
-                
+                form.innerHTML += "<label for=\"q\">Question:</label>\n" +
+
+                "<button onclick=\"addAnswer()>Add Answer</button>" +
                 "<input type=\"text\" name=\"q\"><br>\n" +
                 "<label for=\"question1\">Q1:</label>\n" +
                 "<input type=\"text\" name=\"question1\"><br>\n" +
@@ -63,6 +65,18 @@
                     "<input type=\"radio\" name=\"qR\" value=\"q4\">\n" +
                     "<label for=\"q4\">Question 4</label>\n" +
                 "</form><br>";
+            }
+            function addAnswer() {
+                answerCount++;
+                const form = document.getElementsByTagName("form")[0];
+                form.innerHTML += "<label for=\"question5\">Q5:</label>\n" +
+                "<input type=\"text\" name=\"question5\"><br>\n"; // this MUST BE worked on
+                // issue: need to start using IDs (for each form) so that the answer can be added
+                // ... to the correct question instead of straight at the end of the page.
+            }
+            
+            function removeAnswer() {
+                // TODO - Umar
             }
         </script>
     </body>
