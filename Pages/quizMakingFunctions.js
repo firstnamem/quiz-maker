@@ -22,13 +22,13 @@ function addQuestion() {
             
     "<label for=\"a\">Select The Correct Answer:</label>\n" +
     "<form id=\"q" + questionCount + "selections\">\n" +
-        "<input type=\"radio\" id=\"qR" + questionCount + "a1\" value=\"a1\">\n" +
+        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a1\" value=\"a1\" checked>\n" +
         "<label for=\"a1\">Question 1</label>\n" +
-        "<input type=\"radio\" id=\"qR" + questionCount + "a2\" value=\"a2\">\n" +
+        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a2\" value=\"a2\">\n" +
         "<label for=\"a2\">Question 2</label>\n" +
-        "<input type=\"radio\" id=\"qR" + questionCount + "a3\" value=\"a3\">\n" +
+        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a3\" value=\"a3\">\n" +
         "<label for=\"a3\">Question 3</label>\n" +
-        "<input type=\"radio\" id=\"qR" + questionCount + "a4\" value=\"a4\">\n" +
+        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a4\" value=\"a4\">\n" +
         "<label for=\"a4\">Question 4</label>\n" +
     "</form><br>" +
     "</div>";
@@ -52,6 +52,17 @@ function addAnswer(questionNum) {
     /*const form = document.getElementById("q" + questionNum + "selections");
     form.innerHTML += "<input type=\"radio\" name=\"qR" + questionNum + "a5\" value=\"a5\">\n" +
     "<label for=\"a5\">Question 5</label>\n"; // This should add the bullet for the question*/
+    const form = document.getElementsByTagName("form")[questionNum + 1]; // Will probably change...
+    let radioInput = document.createElement("INPUT");
+    radioInput.setAttribute("name", "q" + questionNum + "radioGroup");
+    radioInput.setAttribute("type", "radio");
+    radioInput.setAttribute("id", "qR" + questionNum + "a5");
+    radioInput.setAttribute("value", "a5");
+    let radioLabel = document.createElement("LABEL");
+    radioLabel.setAttribute("for", "a5");
+    radioLabel.textContent = "Question 5\n";
+    // form.appendChild(radioInput); form.appendChild(radioLabel); // For later...
+
 }
             
 function removeAnswer() {
