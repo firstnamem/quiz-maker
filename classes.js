@@ -148,4 +148,9 @@ class Answer {
 /*let newQuiz = new Quiz("test1", "test2", "test3");
 console.log(newQuiz.cat);*/
 
-export {Quiz, Question, Answer};
+//export {Quiz, Question, Answer};
+
+let newQuiz = new Quiz("test1", "test2", "test3");
+let add = document.createElement("LABEL");
+add.innerText = newQuiz.desc;
+document.body.appendChild(add);
