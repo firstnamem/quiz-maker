@@ -9,15 +9,16 @@ function addQuestion() {
     "<label>Question:</label>\n" +
     
     "<input type=\"text\" id=\"q" + questionCount + "question\">\n" +
-    "<button type=\"button\" onclick=\"addAnswer(" + questionCount + ")\">Add Answer</button><br>" +
+    "<button type=\"button\" onclick=\"addAnswer(" + questionCount + ")\">Add Answer</button>" +
+    "<button type=\"button\" onclick=\"removeAnswer(" + questionCount + ")\">Remove Answer</button><br>" +
     "<div id=\"q" + questionCount + "answers\">" +
-        "<label for=\"a1\">Q1:</label>\n" +
+        "<label for=\"a1\">A1:</label>\n" +
         "<input type=\"text\" id=\"q" + questionCount + "a1\"><br>\n" +
-        "<label for=\"a2\">Q2:</label>\n" +
+        "<label for=\"a2\">A2:</label>\n" +
         "<input type=\"text\" id=\"q" + questionCount + "a2\"><br>\n" +
-        "<label for=\"a3\">Q3:</label>\n" +
+        "<label for=\"a3\">A3:</label>\n" +
         "<input type=\"text\" id=\"q" + questionCount + "a3\"><br>\n" +
-        "<label for=\"a4\">Q4:</label>\n" +
+        "<label for=\"a4\">A4:</label>\n" +
         "<input type=\"text\" id=\"q" + questionCount + "a4\"><br>\n" +
     "</div>" +
             
@@ -42,15 +43,12 @@ function addAnswer(questionNum) {
     const div = document.getElementById("q" + questionNum + "answers");
     let label = document.createElement("LABEL");
     label.setAttribute("for", "a" + (answerCount + 1));
-    label.textContent = "Q" + (answerCount + 1) + ":\n";
+    label.textContent = "A" + (answerCount + 1) + ":\n";
     let input = document.createElement("INPUT");
     input.setAttribute("type", "text");
     input.setAttribute("id", "q" + questionNum + "a" + (answerCount + 1));
     div.appendChild(label); div.appendChild(input);
     div.appendChild(document.createElement("BR"));
-    // this MUST BE worked on
-    // issue: need to start using IDs (for each form) so that the answer can be added
-    // ... to the correct question instead of straight at the end of the page.
     /*const form = document.getElementById("q" + questionNum + "selections");
     form.innerHTML += "<input type=\"radio\" name=\"qR" + questionNum + "a5\" value=\"a5\">\n" +
     "<label for=\"a5\">Question 5</label>\n"; // This should add the bullet for the question*/
@@ -64,9 +62,15 @@ function addAnswer(questionNum) {
     radioLabel.setAttribute("for", "a" + (answerCount + 1));
     radioLabel.textContent = "Question " + (answerCount + 1) + "\n";
     radioDiv.appendChild(radioInput); radioDiv.appendChild(radioLabel);
-
 }
             
-function removeAnswer() {
-    // TODO - Umar
+function removeAnswer(questionNum) {
+    const answerCount = document.getElementsByName("q" + questionNum + "radioGroup").length;
+    const div = document.getElementById("q" + questionNum + "answers");
+    if (answerCount > 2) {
+        div.removeChild(document.getElementById(/*Discuss with umar the naming system*/)); // remove radiobutton
+        div.removeChild(document.getElementById()); // remove radiobutton label
+        div.removeChild(document.getElementById()); // remove answer label
+        div.removeChild(document.getElementById()); // remove answer input box
+    }
 }
