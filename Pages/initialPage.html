@@ -11,13 +11,13 @@
         <body>
             <h1>Welcome To Quiz Maker!</h1>
             <h2>Enter information below, you must put at least a name for your quiz.</h2>
-            <form>
+            <form onsubmit="attempt()">
                 <label for="name">Name:</label>
-                <input type="text" name="name"><br>
+                <input type="text" name="name" id="titleInput"><br>
                 <label for="description">Brief Description:</label>
                 <input type="text" name="description" id="descInput"><br>
                 <label for="category">Category:</label>
-                <select name="category"> <!--I came up with the categories really quick-->
+                <select name="category" id="catInput"> <!--I came up with the categories really quick-->
                     <option><i>[Select a Category]</i></option> <!--Option to select nothing-->
                     <option>Art & Literature</option>
                     <option>Geography</option>

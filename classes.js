@@ -150,7 +150,14 @@ console.log(newQuiz.cat);*/
 
 //export {Quiz, Question, Answer};
 
-let newQuiz = new Quiz("test1", "test2", "test3");
-let add = document.createElement("LABEL");
-add.innerText = newQuiz.desc;
-document.body.appendChild(add);
+function attempt() {
+    let newTitle = document.getElementById("titleInput").value;
+    let newDesc = document.getElementById("descInput").value;
+    let newCat = document.getElementById("catInput").options[document.getElementById("catInput").selectedIndex].text;
+    let newQuiz = new Quiz(newTitle, newDesc, newCat);
+    /*let add = document.createElement("LABEL");
+    add.innerText = newQuiz.desc;
+    document.body.appendChild(add);
+    localStorage.setItem("title", newQuiz.desc);
+    console.log(localStorage.getItem("title"));*/
+}
