@@ -1,4 +1,5 @@
-let answerCount = 4;
+/* let answerCount = 4; problem with having answercount is
+that we would need one for every question */
 let questionCount = 0; // we start on the 0th question
 function addQuestion() {
     const form = document.getElementsByTagName("form")[0];
@@ -21,7 +22,7 @@ function addQuestion() {
     "</div>" +
             
     "<label for=\"a\">Select The Correct Answer:</label>\n" +
-    "<form id=\"q" + questionCount + "selections\">\n" +
+    "<div id=\"q" + questionCount + "selections\">\n" +
         "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a1\" value=\"a1\" checked>\n" +
         "<label for=\"a1\">Question 1</label>\n" +
         "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a2\" value=\"a2\">\n" +
@@ -30,20 +31,21 @@ function addQuestion() {
         "<label for=\"a3\">Question 3</label>\n" +
         "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a4\" value=\"a4\">\n" +
         "<label for=\"a4\">Question 4</label>\n" +
-    "</form><br>" +
+    "</div><br>" +
     "</div>";
     questionCount++;
 }
 
 function addAnswer(questionNum) {
-    answerCount++;
+    const answerCount = document.getElementsByName("q" + questionNum + "radioGroup").length;
+    // console.log(answerCount);
     const div = document.getElementById("q" + questionNum + "answers");
     let label = document.createElement("LABEL");
-    label.setAttribute("for", "a5");
-    label.textContent = "Q5:\n";
+    label.setAttribute("for", "a" + (answerCount + 1));
+    label.textContent = "Q" + (answerCount + 1) + ":\n";
     let input = document.createElement("INPUT");
     input.setAttribute("type", "text");
-    input.setAttribute("id", "q" + questionNum + "a5");
+    input.setAttribute("id", "q" + questionNum + "a" + (answerCount + 1));
     div.appendChild(label); div.appendChild(input);
     div.appendChild(document.createElement("BR"));
     // this MUST BE worked on
@@ -52,16 +54,16 @@ function addAnswer(questionNum) {
     /*const form = document.getElementById("q" + questionNum + "selections");
     form.innerHTML += "<input type=\"radio\" name=\"qR" + questionNum + "a5\" value=\"a5\">\n" +
     "<label for=\"a5\">Question 5</label>\n"; // This should add the bullet for the question*/
-    const form = document.getElementsByTagName("form")[questionNum + 1]; // Will probably change...
+    const radioDiv = document.getElementById("q" + questionNum + "selections"); // Will probably change...
     let radioInput = document.createElement("INPUT");
     radioInput.setAttribute("name", "q" + questionNum + "radioGroup");
     radioInput.setAttribute("type", "radio");
-    radioInput.setAttribute("id", "qR" + questionNum + "a5");
-    radioInput.setAttribute("value", "a5");
+    radioInput.setAttribute("id", "qR" + questionNum + "a" + (answerCount + 1));
+    radioInput.setAttribute("value", "a" + (answerCount + 1));
     let radioLabel = document.createElement("LABEL");
-    radioLabel.setAttribute("for", "a5");
-    radioLabel.textContent = "Question 5\n";
-    // form.appendChild(radioInput); form.appendChild(radioLabel); // For later...
+    radioLabel.setAttribute("for", "a" + (answerCount + 1));
+    radioLabel.textContent = "Question " + (answerCount + 1) + "\n";
+    radioDiv.appendChild(radioInput); radioDiv.appendChild(radioLabel);
 
 }
             
