@@ -8,7 +8,7 @@ function addQuestion() {
     "<div id=\"q" + questionCount + "\">" +
     "<label>Question:</label>\n" +
     
-    "<input type=\"text\" id=\"q" + questionCount + "question\">\n" +
+    "<input type=\"text\" id=\"q" + questionCount + "question\"><br>\n" +
     "<button type=\"button\" onclick=\"addAnswer(" + questionCount + ")\">Add Answer</button>" +
     "<button type=\"button\" onclick=\"removeAnswer(" + questionCount + ")\">Remove Answer</button>" +
     "<button type=\"button\" onclick=\"removeQuestion(" + questionCount + ")\">Remove Question</button><br>" +
@@ -26,13 +26,13 @@ function addQuestion() {
     "<label for=\"a\">Select The Correct Answer:</label>\n" +
     "<div id=\"q" + questionCount + "selections\">\n" +
         "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a1\" value=\"a1\" checked>\n" +
-        "<label for=\"a1\" id=\"qR" + questionCount + "a1" + "label\">Question 1</label>\n" +
+        "<label for=\"a1\" id=\"qR" + questionCount + "a1" + "label\">Answer 1</label>\n" +
         "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a2\" value=\"a2\">\n" +
-        "<label for=\"a2\" id=\"qR" + questionCount + "a2" + "label\">Question 2</label>\n" +
+        "<label for=\"a2\" id=\"qR" + questionCount + "a2" + "label\">Answer 2</label>\n" +
         "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a3\" value=\"a3\">\n" +
-        "<label for=\"a3\" id=\"qR" + questionCount + "a3" + "label\">Question 3</label>\n" +
+        "<label for=\"a3\" id=\"qR" + questionCount + "a3" + "label\">Answer 3</label>\n" +
         "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a4\" value=\"a4\">\n" +
-        "<label for=\"a4\" id=\"qR" + questionCount + "a4" + "label\">Question 4</label>\n" +
+        "<label for=\"a4\" id=\"qR" + questionCount + "a4" + "label\">Answer 4</label>\n" +
     "</div><br>" +
     "</div>";
     questionCount++;
@@ -63,7 +63,7 @@ function addAnswer(questionNum) {
     let radioLabel = document.createElement("LABEL");
     radioLabel.setAttribute("for", "a" + (answerCount + 1));
     radioLabel.setAttribute("id", "qR" + questionNum + "a" + (answerCount + 1) + "label");
-    radioLabel.textContent = "Question " + (answerCount + 1) + "\n";
+    radioLabel.textContent = "Answer " + (answerCount + 1) + "\n";
     radioDiv.appendChild(radioInput); radioDiv.appendChild(radioLabel);
 }
             
@@ -78,9 +78,9 @@ function removeAnswer(questionNum) {
     if (answerCount>2) {
         answerRadio.remove(); // remove radiobutton
         radioLabel.remove(); // remove radiobutton label
-        answerInput.nextElementSibling.remove();
+        answerInput.nextElementSibling.remove(); // deletes line break so spacing can stay the same
         answerInput.remove(); // remove answer label
-        inputLabel.remove(); // radioDiv.removeChild(document.getElementById()); // remove answer input box
+        inputLabel.remove(); // remove answer input box
     }
 }
 
