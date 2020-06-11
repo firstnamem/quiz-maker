@@ -10,7 +10,8 @@ function addQuestion() {
     
     "<input type=\"text\" id=\"q" + questionCount + "question\">\n" +
     "<button type=\"button\" onclick=\"addAnswer(" + questionCount + ")\">Add Answer</button>" +
-    "<button type=\"button\" onclick=\"removeAnswer(" + questionCount + ")\">Remove Answer</button><br>" +
+    "<button type=\"button\" onclick=\"removeAnswer(" + questionCount + ")\">Remove Answer</button>" +
+    "<button type=\"button\" onclick=\"removeQuestion(" + questionCount + ")\">Remove Question</button><br>" +
     "<div id=\"q" + questionCount + "answers\">" +
         "<label for=\"a1\">A1:</label>\n" +
         "<input type=\"text\" id=\"q" + questionCount + "a1\"><br>\n" +
@@ -66,11 +67,18 @@ function addAnswer(questionNum) {
             
 function removeAnswer(questionNum) {
     const answerCount = document.getElementsByName("q" + questionNum + "radioGroup").length;
-    const answerRadio = document.getElementById("qR" + questionNum + "a" + (answerCount + 1));
-    const answerInput = document.getElementById("q" + questionNum + "a" + (answerCount + 1));
+    const answerRadio = document.getElementById("qR" + questionNum + "a" + (answerCount));
+    const answerInput = document.getElementById("q" + questionNum + "a" + (answerCount));
 
-    answerRadio.parentNode.removeChild(); // remove radiobutton
+    answerRadio.remove(); // remove radiobutton
     // ansDiv.removeChild(document.getElementById()); // remove radiobutton label
-    answerInput.parentNode.removeChild(); // remove answer label
+    answerInput.remove(); // remove answer label
     // radioDiv.removeChild(document.getElementById()); // remove answer input box
+}
+
+function removeQuestion(questionNum) {
+    const div = document.getElementById("q" + questionNum);
+    div.remove();
+    /* const divCount = document.getElementsByTagName("div").length;
+    console.log(divCount);*/
 }
