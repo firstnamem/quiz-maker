@@ -66,11 +66,11 @@ function addAnswer(questionNum) {
             
 function removeAnswer(questionNum) {
     const answerCount = document.getElementsByName("q" + questionNum + "radioGroup").length;
-    const div = document.getElementById("q" + questionNum + "answers");
-    if (answerCount > 2) {
-        div.removeChild(document.getElementById(/*Discuss with umar the naming system*/)); // remove radiobutton
-        div.removeChild(document.getElementById()); // remove radiobutton label
-        div.removeChild(document.getElementById()); // remove answer label
-        div.removeChild(document.getElementById()); // remove answer input box
-    }
+    const answerRadio = document.getElementById("qR" + questionNum + "a" + (answerCount + 1));
+    const answerInput = document.getElementById("q" + questionNum + "a" + (answerCount + 1));
+
+    answerRadio.parentNode.removeChild(); // remove radiobutton
+    // ansDiv.removeChild(document.getElementById()); // remove radiobutton label
+    answerInput.parentNode.removeChild(); // remove answer label
+    // radioDiv.removeChild(document.getElementById()); // remove answer input box
 }
