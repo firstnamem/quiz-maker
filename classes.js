@@ -151,13 +151,12 @@ console.log(newQuiz.cat);*/
 //export {Quiz, Question, Answer};
 
 function attempt() {
-    let newTitle = document.getElementById("titleInput").value;
-    let newDesc = document.getElementById("descInput").value;
-    let newCat = document.getElementById("catInput").options[document.getElementById("catInput").selectedIndex].text;
-    let newQuiz = new Quiz(newTitle, newDesc, newCat);
-    /*let add = document.createElement("LABEL");
-    add.innerText = newQuiz.desc;
-    document.body.appendChild(add);
-    localStorage.setItem("title", newQuiz.desc);
-    console.log(localStorage.getItem("title"));*/
+    const newTitle = document.getElementById("titleInput").value;
+    const newDesc = document.getElementById("descInput").value;
+    const newCat = document.getElementById("catInput").options[document.getElementById("catInput").selectedIndex].text;
+    // let newQuiz = new Quiz(newTitle, newDesc, newCat);
+    
+    localStorage.setItem("title", newTitle);
+    localStorage.setItem("desc", newDesc);
+    localStorage.setItem("cat", newCat)
 }
