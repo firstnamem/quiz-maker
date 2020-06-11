@@ -78,6 +78,7 @@ function removeAnswer(questionNum) {
     if (answerCount>2) {
         answerRadio.remove(); // remove radiobutton
         radioLabel.remove(); // remove radiobutton label
+        answerInput.nextElementSibling.remove();
         answerInput.remove(); // remove answer label
         inputLabel.remove(); // radioDiv.removeChild(document.getElementById()); // remove answer input box
     }
