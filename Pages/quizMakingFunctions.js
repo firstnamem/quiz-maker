@@ -8,7 +8,7 @@ function addQuestion() {
     "<div id=\"q" + questionCount + "\">" +
     "<label>Question:</label>\n" +
     
-    "<input type=\"text\" id=\"q" + questionCount + "question\"><br>\n" +
+    "<input type=\"text\" id=\"q" + questionCount + "question\">\n" +
     "<button type=\"button\" onclick=\"addAnswer(" + questionCount + ")\">Add Answer</button>" +
     "<button type=\"button\" onclick=\"removeAnswer(" + questionCount + ")\">Remove Answer</button>" +
     "<button type=\"button\" onclick=\"removeQuestion(" + questionCount + ")\">Remove Question</button><br>" +
@@ -74,6 +74,11 @@ function removeAnswer(questionNum) {
     const radioLabel = document.getElementById("qR" + questionNum + "a" + (answerCount) + "label");
     const answerInput = document.getElementById("q" + questionNum + "a" + (answerCount));
     const inputLabel = document.getElementById("q" + questionNum + "a" + (answerCount) + "label");
+
+    if (answerRadio.checked) { // basically if you remove a checked radiobutton the check will switch to 1st answer
+        const recheckRadio = document.getElementById("qR" + questionNum + "a1");
+        recheckRadio.checked = true;
+    }
 
     if (answerCount>2) {
         answerRadio.remove(); // remove radiobutton

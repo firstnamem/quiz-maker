@@ -1,21 +1,21 @@
 class Quiz {
     constructor(title, description = null, category = null) {
-        this.title = title;
-        this.desc = description;
-        this.cat = category;
-        this.questionArray = [];
+        this._title = title;
+        this._desc = description;
+        this._cat = category;
+        this._questionArray = [];
     }
 
     addQuestion(questionObj, index = this.numQuestions) {
     // Input should be a question object and index,
     // if index is unspecified the question will be placed at the end
-        this.questionArray.splice(index, 0, questionObj);
+        this._questionArray.splice(index, 0, questionObj);
         // splice function will not replace any array elements,
         // just adds a new one and shifts elements accordingly
     }
 
     removeQuestion(index) { // Input should be the index of the question being removed
-        this.questionArray.splice(index, 1);
+        this._questionArray.splice(index, 1);
         // splice function will remove an array element at specified index,
         // will also shift other elements accordingly
     }
@@ -42,6 +42,10 @@ class Quiz {
         return this._cat;
     }
 
+    get questionArray() {
+        return this._questionArray;
+    }
+
     get numQuestions() {
         return this._questionArray.length;
     }
@@ -60,26 +64,31 @@ class Quiz {
         this._cat = newCategory;
     }
 
+    set questionArray(newQuestionArray) {
+        this._question = newQuestionArray;
+    }
+
 }
 
 class Question {
     constructor(question) { // Input is the question being asked
-        this.question = question;
-        this.answerArray = [];
+        this._question = question;
+        this._answerArray = [];
     }
 
     addAnswer(answerObj, index = this.numAnswers) {
-        this.answerArray.splice(index, 0, answerObj);
+        this._answerArray.splice(index, 0, answerObj);
     }
 
     removeAnswer(index) {
-        this.answerArray.splice(index, 1);
+        this._answerArray.splice(index, 1);
     }
 
     validQuestion() {
+        const oneCorrect = false;
         for (let x = 0; x < this.numAnswers; x++) {
-            if (this.answerArray[x].correct) {
-                const oneCorrect = true;
+            if (this._answerArray[x].correct) {
+                oneCorrect = true;
             }
         } // for loop that checks if there is at least one correct answer
 
@@ -96,6 +105,10 @@ class Question {
         return this._question;
     }
 
+    get answerArray() {
+        return this._answerArray;
+    }
+
     get numAnswers() {
         return this._answerArray.length;
     }
@@ -106,12 +119,16 @@ class Question {
         this._question = newQuestion;
     }
 
+    set answerArray(newAnswerArray) {
+        this._answerArray = newAnswerArray;
+    }
+
 }
 
 class Answer {
     constructor(answer, correctBoolean = false) { // Input is the possible answer
-        this.answer = answer;
-        this.correct = correctBoolean;
+        this._answer = answer;
+        this._correct = correctBoolean;
     }
 
     get answer() {
@@ -145,18 +162,22 @@ class Answer {
     }
 }
 
-/*let newQuiz = new Quiz("test1", "test2", "test3");
-console.log(newQuiz.cat);*/
+function quizStore() {
+let userQuiz = new Quiz(localStorage.getItem("title"), localStorage.getItem("desc"), localStorage.getItem("cat"));
+const divList = document.getElementsByTagName("div");
+for (let x = 1; x < divList.length; x += 3) {
+    let newQuestion = new Question(divList[x].children[1].value);
+    let inputBoxList = divList[x + 1].getElementsByTagName("input");
+    let radioList = divList[x + 2].getElementsByTagName("input");
+    for (let y = 0; y < inputBoxList.length; y++) {
+        let answerText = inputBoxList[y].value;
+        let answerBoolean = radioList[y].checked;
+        let newAnswer = new Answer(answerText, answerBoolean);
+        newQuestion.addAnswer(newAnswer);
+    }
+    userQuiz.addQuestion(newQuestion);
+}
 
-//export {Quiz, Question, Answer};
+localStorage.setItem("newQuiz", JSON.stringify(userQuiz));
 
-function attempt() {
-    const newTitle = document.getElementById("titleInput").value;
-    const newDesc = document.getElementById("descInput").value;
-    const newCat = document.getElementById("catInput").options[document.getElementById("catInput").selectedIndex].text;
-    // let newQuiz = new Quiz(newTitle, newDesc, newCat);
-    
-    localStorage.setItem("title", newTitle);
-    localStorage.setItem("desc", newDesc);
-    localStorage.setItem("cat", newCat);
 }
