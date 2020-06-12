@@ -1,1 +1,28 @@
-/* Styling document! */
+@import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
+.allElements {
+    text-align: center;
+    font-family: 'proxima-nova', sans-serif;
+}
+
+#initialSubmit {
+    background-color: #73b504;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin: 7px 2px;
+    opacity: 0.5;
+    transition: 0.35s;
+}
+
+#initialSubmit:hover {opacity: 1}
+
+#desc {
+    font-size: 18px;
+    color: #444444;
+}
+
+#titleInput {
+    padding: 2px 6px;
+    margin: 10px 6px;
+}
