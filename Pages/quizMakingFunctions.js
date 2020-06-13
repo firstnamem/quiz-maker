@@ -5,7 +5,7 @@ function addQuestion() {
     const form = document.getElementsByTagName("form")[0];
     form.insertAdjacentHTML("beforeend",
                 
-    "<div id=\"q" + questionCount + "\" class=\"question\">" +
+    "<div id=\"q" + questionCount + "\" class=\"allElements\">" +
     "<label>Question:</label>\n" +
     
     "<input type=\"text\" id=\"q" + questionCount + "question\"><br>\n" +
