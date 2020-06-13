@@ -3,7 +3,7 @@ that we would need one for every question */
 let questionCount = 0; // we start on the 0th question
 function addQuestion() {
     const form = document.getElementsByTagName("form")[0];
-    form.innerHTML += 
+    form.insertAdjacentHTML("beforeend",
                 
     "<div id=\"q" + questionCount + "\">" +
     "<label>Question:</label>\n" +
@@ -25,16 +25,16 @@ function addQuestion() {
             
     "<label for=\"a\">Select The Correct Answer:</label>\n" +
     "<div id=\"q" + questionCount + "selections\">\n" +
-        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a1\" value=\"a1\" checked>\n" +
+        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a1\" checked>\n" +
         "<label for=\"a1\" id=\"qR" + questionCount + "a1" + "label\">Answer 1</label>\n" +
-        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a2\" value=\"a2\">\n" +
+        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a2\">\n" +
         "<label for=\"a2\" id=\"qR" + questionCount + "a2" + "label\">Answer 2</label>\n" +
-        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a3\" value=\"a3\">\n" +
+        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a3\">\n" +
         "<label for=\"a3\" id=\"qR" + questionCount + "a3" + "label\">Answer 3</label>\n" +
-        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a4\" value=\"a4\">\n" +
+        "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a4\">\n" +
         "<label for=\"a4\" id=\"qR" + questionCount + "a4" + "label\">Answer 4</label>\n" +
     "</div><br>" +
-    "</div>";
+    "</div>");
     questionCount++;
 }
 
@@ -59,7 +59,6 @@ function addAnswer(questionNum) {
     radioInput.setAttribute("name", "q" + questionNum + "radioGroup");
     radioInput.setAttribute("type", "radio");
     radioInput.setAttribute("id", "qR" + questionNum + "a" + (answerCount + 1));
-    radioInput.setAttribute("value", "a" + (answerCount + 1));
     let radioLabel = document.createElement("LABEL");
     radioLabel.setAttribute("for", "a" + (answerCount + 1));
     radioLabel.setAttribute("id", "qR" + questionNum + "a" + (answerCount + 1) + "label");
