@@ -27,4 +27,16 @@ for (let x = 0; x < userQuiz._questionArray.length; x++) {
         let firstAnswer = document.getElementById("questionR" + x + "a0");
         firstAnswer.checked = true;
     }
+    form.insertAdjacentHTML("beforeend", "</div>");
+    form.insertAdjacentHTML("beforeend", "</div>");
 }
+
+const lineBreak = document.createElement("br");
+form.appendChild(lineBreak);
+
+let submitButton = document.createElement("INPUT");
+submitButton.setAttribute("type", "button");
+submitButton.setAttribute("onclick", "grade()")
+submitButton.setAttribute("value", "Submit Answers");
+submitButton.setAttribute("id", "quizTakingSubmit");
+form.appendChild(submitButton);
