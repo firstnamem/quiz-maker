@@ -8,13 +8,15 @@
         <link href="../style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <h1>Time to make your Quiz!</h1>
-        <div class = "questions"> <!-- This section should somehow be made into a js method to add questions -->
-            <form onsubmit="quizStore()" action="quizTaking.html"> <!-- The below code is one sample question -->
-                <input type="submit" value="Submit">
-            </form>
+        <div class="qMElements">
+            <h1>Time to make your Quiz!</h1>
+            <button onclick="addQuestion()">Add Question</button>
+            <div class = "questions"> 
+                <form onsubmit="quizStore()" action="quizTaking.html">
+                    <input type="submit" value="Submit Quiz">
+                </form>
+            </div>
         </div>
-        <button onclick="addQuestion()">Add question (make this into an icon maybe)</button>
         <script src="quizMakingFunctions.js">
         </script>
         <script src="localStoring.js">

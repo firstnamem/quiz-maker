@@ -5,10 +5,10 @@ function addQuestion() {
     const form = document.getElementsByTagName("form")[0];
     form.insertAdjacentHTML("beforeend",
                 
-    "<div id=\"q" + questionCount + "\">" +
+    "<div id=\"q" + questionCount + "\" class=\"question\">" +
     "<label>Question:</label>\n" +
     
-    "<input type=\"text\" id=\"q" + questionCount + "question\">\n" +
+    "<input type=\"text\" id=\"q" + questionCount + "question\"><br>\n" +
     "<button type=\"button\" onclick=\"addAnswer(" + questionCount + ")\">Add Answer</button>" +
     "<button type=\"button\" onclick=\"removeAnswer(" + questionCount + ")\">Remove Answer</button>" +
     "<button type=\"button\" onclick=\"removeQuestion(" + questionCount + ")\">Remove Question</button><br>" +
@@ -39,31 +39,31 @@ function addQuestion() {
 }
 
 function addAnswer(questionNum) {
+        
     const answerCount = document.getElementsByName("q" + questionNum + "radioGroup").length;
-    // console.log(answerCount);
-    const div = document.getElementById("q" + questionNum + "answers");
-    let label = document.createElement("LABEL");
-    label.setAttribute("for", "a" + (answerCount + 1));
-    label.setAttribute("id", "q" + questionNum + "a" + (answerCount + 1) + "label");
-    label.textContent = "A" + (answerCount + 1) + ":\n";
-    let input = document.createElement("INPUT");
-    input.setAttribute("type", "text");
-    input.setAttribute("id", "q" + questionNum + "a" + (answerCount + 1));
-    div.appendChild(label); div.appendChild(input);
-    div.appendChild(document.createElement("BR"));
-    /*const form = document.getElementById("q" + questionNum + "selections");
-    form.innerHTML += "<input type=\"radio\" name=\"qR" + questionNum + "a5\" value=\"a5\">\n" +
-    "<label for=\"a5\">Question 5</label>\n"; // This should add the bullet for the question*/
-    const radioDiv = document.getElementById("q" + questionNum + "selections"); // Will probably change...
-    let radioInput = document.createElement("INPUT");
-    radioInput.setAttribute("name", "q" + questionNum + "radioGroup");
-    radioInput.setAttribute("type", "radio");
-    radioInput.setAttribute("id", "qR" + questionNum + "a" + (answerCount + 1));
-    let radioLabel = document.createElement("LABEL");
-    radioLabel.setAttribute("for", "a" + (answerCount + 1));
-    radioLabel.setAttribute("id", "qR" + questionNum + "a" + (answerCount + 1) + "label");
-    radioLabel.textContent = "Answer " + (answerCount + 1) + "\n";
-    radioDiv.appendChild(radioInput); radioDiv.appendChild(radioLabel);
+    if (answerCount<9) {
+        const div = document.getElementById("q" + questionNum + "answers");
+        let label = document.createElement("LABEL");
+        label.setAttribute("for", "a" + (answerCount + 1));
+        label.setAttribute("id", "q" + questionNum + "a" + (answerCount + 1) + "label");
+        label.textContent = "A" + (answerCount + 1) + ":\n";
+        let input = document.createElement("INPUT");
+        input.setAttribute("type", "text");
+        input.setAttribute("id", "q" + questionNum + "a" + (answerCount + 1));
+        div.appendChild(label); div.appendChild(input);
+        div.appendChild(document.createElement("BR"));
+        
+        const radioDiv = document.getElementById("q" + questionNum + "selections"); // Will probably change...
+        let radioInput = document.createElement("INPUT");
+        radioInput.setAttribute("name", "q" + questionNum + "radioGroup");
+        radioInput.setAttribute("type", "radio");
+        radioInput.setAttribute("id", "qR" + questionNum + "a" + (answerCount + 1));
+        let radioLabel = document.createElement("LABEL");
+        radioLabel.setAttribute("for", "a" + (answerCount + 1));
+        radioLabel.setAttribute("id", "qR" + questionNum + "a" + (answerCount + 1) + "label");
+        radioLabel.textContent = "Answer " + (answerCount + 1) + "\n";
+        radioDiv.appendChild(radioInput); radioDiv.appendChild(radioLabel);
+    }
 }
             
 function removeAnswer(questionNum) {
