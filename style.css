@@ -2,7 +2,7 @@
 
 .allElements {
     text-align: center;
-    font-family: 'proxima-nova', sans-serif;
+    font-family: "proxima-nova", sans-serif;
 }
 
 #initialSubmit {
@@ -76,3 +76,16 @@
 }
 
 #qMSubmit:active {opacity: 1}
+
+#qTBody {
+    background-image:url("quizTakingBG.jpg")
+}
+
+#qT_h1 {
+    font-family:"Arial Black", Gadget, sans-serif;
+    font-size: 40px;
+}
+
+#qT_h2 {
+    color: #555555;
+}
