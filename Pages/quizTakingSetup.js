@@ -16,7 +16,7 @@ for (let x = 0; x < userQuiz._questionArray.length; x++) {
     "<br><div id=\"question" + x + "\" class=\"allElements\">" +
     "<label>Question " + (x + 1) + ": " + focusQuestion._question + "</label><br>\n" +
     
-    "<div id=\"question" + x + "answers\">");
+    "<div id=\"question" + x + "answers\" class=\"allElements\">");
     for (let y = 0; y < focusQuestion._answerArray.length; y++) {
         let focusAnswer = focusQuestion._answerArray[y];
         form.insertAdjacentHTML("beforeend",
