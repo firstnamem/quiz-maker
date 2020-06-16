@@ -51,7 +51,7 @@
 
 #qMButtons:hover {opacity: 1}
 
-#addAnswer {
+#addA {
     background-color: #73b504;
     color: white;
     border: none;
@@ -62,13 +62,13 @@
     transition: 0.35s;
 }
 
-#addAnswer:hover {opacity: 1}
+#addA:hover{opacity: 1}
 
 #qMSubmit {
     background-color: #187bcd;
     color: white;
     border: none;
-    padding: 4px 8px;
+    padding: 5px 10px;
     font-size: 16px;
     margin: 10px;
     opacity: 0.45;

@@ -9,7 +9,7 @@ function addQuestion() {
     "<label>Question:</label>\n" +
     
     "<input type=\"text\" id=\"q" + questionCount + "question\"><br>\n" +
-    "<button type=\"button\" onclick=\"addAnswer(" + questionCount + ")\" id=\"addAnswer\">Add Answer</button>" +
+    "<button type=\"button\" onclick=\"addAnswer(" + questionCount + ")\" id=\"addA\">Add Answer</button>" +
     "<button type=\"button\" onclick=\"removeAnswer(" + questionCount + ")\" id=\"qMButtons\">Remove Answer</button>" +
     "<button type=\"button\" onclick=\"removeQuestion(" + questionCount + ")\" id=\"qMButtons\">Remove Question</button><br>" +
 
