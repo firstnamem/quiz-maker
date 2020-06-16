@@ -23,8 +23,10 @@ function addQuestion() {
         "<label for=\"a4\" id=\"q" + questionCount + "a4" + "label\">A4:</label>\n" +
         "<input type=\"text\" id=\"q" + questionCount + "a4\"><br>\n" +
     "</div>" +
-            
+        
+    "<div id=\"qRLabel\">" +
     "<label for=\"a\">Select The Correct Answer:</label>\n" +
+    "</div>" +
     "<div id=\"q" + questionCount + "selections\">\n" +
         "<input name=\"q" + questionCount + "radioGroup\" type=\"radio\" id=\"qR" + questionCount + "a1\" checked>\n" +
         "<label for=\"a1\" id=\"qR" + questionCount + "a1" + "label\">Answer 1</label>\n" +
@@ -44,6 +46,7 @@ function addAnswer(questionNum) {
     const answerCount = document.getElementsByName("q" + questionNum + "radioGroup").length;
     if (answerCount<9) {
         const div = document.getElementById("q" + questionNum + "answers");
+        
         let label = document.createElement("LABEL");
         label.setAttribute("for", "a" + (answerCount + 1));
         label.setAttribute("id", "q" + questionNum + "a" + (answerCount + 1) + "label");
