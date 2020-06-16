@@ -165,10 +165,10 @@ class Answer {
 function quizStore() {
 let userQuiz = new Quiz(localStorage.getItem("title"), localStorage.getItem("desc"), localStorage.getItem("cat"));
 const divList = document.getElementsByTagName("div");
-for (let x = 2; x < divList.length; x += 3) {
+for (let x = 2; x < divList.length; x += 4) {
     let newQuestion = new Question(divList[x].children[1].value);
     let inputBoxList = divList[x + 1].getElementsByTagName("input");
-    let radioList = divList[x + 2].getElementsByTagName("input");
+    let radioList = divList[x + 3].getElementsByTagName("input");
     for (let y = 0; y < inputBoxList.length; y++) {
         let answerText = inputBoxList[y].value;
         let answerBoolean = radioList[y].checked;
